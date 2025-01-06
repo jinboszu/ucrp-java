@@ -85,7 +85,7 @@ public class UpperBound {
 
                 int s_opt = -1;
                 for (int s = 0; s < n_stacks; s++) {
-                    if (s != src && h[s] > 0 && b[s][h[s]] == 0 && p[s][h[s]] <= q[s_max][h[s_max]] && (s != s_max || p[s][h[s]] <= q[s_sec][h[s_sec]]) && p[src][h[src]] <= q[s][h[s] - 1] && (s_opt == -1 || p[s_opt][h[s_opt]] < p[s][h[s]])) {
+                    if (s != src && h[s] > 0 && b[s][h[s]] == 0 && (s != s_max && p[s][h[s]] <= q[s_max][h[s_max]] || s == s_max && s_sec != -1 && p[s][h[s]] <= q[s_sec][h[s_sec]]) && p[src][h[src]] <= q[s][h[s] - 1] && (s_opt == -1 || p[s_opt][h[s_opt]] < p[s][h[s]])) {
                         s_opt = s;
                     }
                 }
